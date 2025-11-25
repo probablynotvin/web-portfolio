@@ -103,22 +103,22 @@ const Hero: React.FC = () => {
   <div className="relative">
   <div className="absolute -inset-8 -z-10 rounded-[36px] bg-[conic-gradient(at_60%_40%,#60a5fa_0deg,#a78bfa_120deg,#fbbf24_240deg,#60a5fa_360deg)] opacity-70 blur-2xl" />
     {/* plain image, no card */}
-    <img
+    {/* <img
       src={profileImg}
       alt="Profile"
       className="
         relative z-10 block
-        w-40  h-auto          /* mobile: ~160px wide */
-        sm:w-48              /* small screens */
-        md:w-60              /* tablets */
-        lg:w-80              /* laptops */
-        xl:w-[24rem]         /* big desktops */
+        w-40  h-auto          
+        sm:w-48            
+        md:w-60            
+        lg:w-80            
+        xl:w-[24rem]         
         object-contain
         select-none drop-shadow-2xl
       "
       loading="eager"
       draggable={false}
-    />
+    /> */}
   </div>
 
       </div>
