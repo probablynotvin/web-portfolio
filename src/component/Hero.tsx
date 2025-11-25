@@ -8,8 +8,7 @@ import {
   FileDown,
 } from "lucide-react";
 
-// 👇 add these imports
-import profileImg from "../assets/charlss.png";
+
 import resumeFile from "../assets/charlsresume.png";
 
 
