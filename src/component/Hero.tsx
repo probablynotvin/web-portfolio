@@ -129,6 +129,7 @@ const Hero: React.FC = () => {
           <span>WEB DEVELOPMENT</span>
           <span>BASIC NETWORKING</span>
           <span>LAYOUT DESIGN</span>
+          <span>QUALITY ASSURANCE</span>
         </div>
       </div>
     </section>
