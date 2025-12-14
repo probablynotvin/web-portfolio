@@ -1,3 +1,16 @@
+import img1 from '../assets/1.png';
+import img3 from '../assets/3.png';
+import img7 from '../assets/7.png';
+import webportfolio from '../assets/webportfolio.png';
+
+const projects = [
+  { title: 'ERIS Resident Mobile Interface', image: img1, description: '...', link: '...' },
+  { title: 'ERIS Responder Mobile Interface', image: img7, description: '...', link: '...' },
+  { title: 'ERIS Admin Management Interface', image: img3, description: '...', link: '...' },
+  { title: 'Personal Portfolio Website', image: webportfolio, description: '...', link: '...', github: '...' },
+];
+
+
 export default function Projects() {
   const projects = [
     {
