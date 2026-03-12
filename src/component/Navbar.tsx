@@ -1,48 +1,71 @@
-import { useState } from 'react';
-import { HiMenu, HiX } from 'react-icons/hi'; // You can install: npm i react-icons
+import { useState, useEffect } from 'react';
+
+const navLinks = [
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
+];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState('Home');
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="fixed w-full z-50 bg-black/50 backdrop-blur-lg shadow-md border-b border-white/10">
-      <nav className="flex justify-between items-center px-8 py-4">
+    <>
+      {/* Navbar */}
+      <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         {/* Logo */}
-        {/* <h1
-          className="font-normal"
-          style={{
-            fontFamily: "'VT323', 'Fira Mono', 'Consolas', monospace",
-            color: 'white',
-            fontSize: '1.8rem',
-          }}
-        >
-          arvin <span style={{ color: '#FF4F0F' }}>charls</span>
-        </h1> */}
+        <a href="#home" className="navbar-logo">
+          vindev<span>.</span>
+        </a>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-9 text-white/80 text-xl justify-center items-center mx-auto">
-        <li><a href="#home" className="hover:text-white">Home</a></li>
-        <li><a href="#about" className="hover:text-white">About</a></li>
-        <li><a href="#projects" className="hover:text-white">Projects</a></li>
-        <li><a href="#contact" className="hover:text-white">Contact</a></li>
+        <ul className="navbar-links">
+          {navLinks.map(link => (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                className={active === link.label ? 'active' : ''}
+                onClick={() => setActive(link.label)}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
 
+        {/* Hamburger */}
+        <button
+          className="hamburger-btn"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
+        >
+          <span className="hamburger-line" style={{ transform: isOpen ? 'translateY(6.5px) rotate(45deg)' : 'none' }} />
+          <span className="hamburger-line" style={{ opacity: isOpen ? 0 : 1 }} />
+          <span className="hamburger-line" style={{ transform: isOpen ? 'translateY(-6.5px) rotate(-45deg)' : 'none' }} />
+        </button>
+      </header>
 
-        {/* Hamburger Icon */}
-        <div className="md:hidden text-white text-3xl cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <HiX /> : <HiMenu />}
-        </div>
-      </nav>
-
-      {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="md:hidden flex flex-col items-center gap-6 text-white/90 text-lg bg-black/90 py-6 backdrop-blur-md border-t border-white/10">
-          <li><a href="#home" className="hover:text-white" onClick={() => setIsOpen(false)}>Home</a></li>
-          <li><a href="#about" className="hover:text-white" onClick={() => setIsOpen(false)}>About</a></li>
-          <li><a href="#projects" className="hover:text-white" onClick={() => setIsOpen(false)}>Projects</a></li>
-          <li><a href="#contact" className="hover:text-white" onClick={() => setIsOpen(false)}>Contact</a></li>
-        </ul>
-      )}
-    </header>
+      {/* Mobile Menu — outside header so it doesn't affect layout */}
+      <div className={`mobile-menu ${isOpen ? 'open' : ''}`}>
+        {navLinks.map(link => (
+          <a
+            key={link.label}
+            href={link.href}
+            onClick={() => { setIsOpen(false); setActive(link.label); }}
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </>
   );
 }

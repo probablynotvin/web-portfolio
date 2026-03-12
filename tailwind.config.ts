@@ -14,6 +14,11 @@ const config: Config = {
           dark: '#cc5500',
         },
       },
+      fontFamily: {
+        sans: ['Inter', 'ui-sans-serif', 'system-ui'],   // for body text
+        serif: ['Merriweather', 'serif'],                // for headings
+        mono: ['Fira Code', 'monospace'],               // for code blocks
+      },
     },
   },
   plugins: [],
