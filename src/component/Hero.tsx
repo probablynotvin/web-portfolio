@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
           <p className="mt-5 text-white/80">
             I am learning IT fundamentals, including Ubuntu and Windows OS, and 
             upskilling to become a Cloud Engineer. I aim to grow my skills in technology 
-            and create meaningful digital solutions.
+            and create meaningful digital solutions. 
           </p>
 
           {/* checklist */}
