@@ -4,7 +4,6 @@ import {
   Github,
   Linkedin,
   Mail,
-  CheckCircle2,
   FileDown,
 } from "lucide-react";
 
@@ -20,132 +19,156 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-transparent via-[#0b1220] to-[#0b1220] text-white"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black text-white"
     >
-      {/* soft background blobs */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-[-10%] left-[-10%] h-[28rem] w-[28rem] rounded-full bg-[#2563eb] blur-3xl opacity-20" />
-        <div className="absolute bottom-[-10%] right-[-10%] h-[22rem] w-[22rem] rounded-full bg-fuchsia-500 blur-3xl opacity-20" />
-      </div>
+      {/* Grid texture */}
+      <div
+        className="pointer-events-none absolute inset-y-0 right-0 w-1/2 -z-10"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, transparent, transparent 39px, #111 40px), repeating-linear-gradient(90deg, transparent, transparent 39px, #111 40px)",
+        }}
+      />
 
       <div className="mx-auto flex w-full max-w-7xl flex-col-reverse items-center gap-12 px-6 py-24 md:flex-row md:items-center md:justify-between">
-        {/* LEFT: text block */}
-        <div className="max-w-2xl">
-          <span className="mb-4 inline-flex items-center gap-2 text-sm text-white/70">
-            <span className="text-xl">👋</span> Hello!
+        {/* LEFT */}
+        <div className="max-w-xl">
+          {/* Availability */}
+          <span className="mb-6 inline-flex items-center gap-2 text-xs tracking-[0.18em] uppercase text-white/30">
+            <span className="w-5 h-px bg-white/30 inline-block" />
+            Available for work
           </span>
 
-          <h1 className="text-4xl font-extrabold leading-tight md:text-6xl">
-            I'm <span className="text-[#2563eb]">Arvin Charls</span>
+          <h1 className="text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl">
+            I'm{" "}
+            <span
+              style={{
+                WebkitTextStroke: "1px white",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Arvin
+            </span>
+            <br />
+            Charls
           </h1>
 
-          <p className="mt-2 text-xl text-white/80">Information Technology</p>
-
-          <p className="mt-5 text-white/80">
-            I am learning IT fundamentals, including Ubuntu and Windows OS, and 
-            upskilling to become a Cloud Engineer. I aim to grow my skills in technology 
-            and create meaningful digital solutions. 
+          <p className="mt-3 text-xs tracking-[0.14em] uppercase text-white/30">
+            Information Technology
           </p>
 
-          {/* checklist */}
-          <ul className="mt-6 space-y-2 text-white/90">
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-5 w-5 text-[#2563eb]" />
-              <span>Products should feel authentic and usable</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-5 w-5 text-[#2563eb]" />
-              <span>Design that solves pain points elegantly</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="mt-0.5 h-5 w-5 text-[#2563eb]" />
-              <span>User testing, feedback, and iteration</span>
-            </li>
+          <p className="mt-5 text-sm text-white/50 leading-relaxed max-w-sm">
+            Learning IT fundamentals, including Ubuntu and Windows OS, and 
+            continuously improving technical skills. Building meaningful digital solutions.
+          </p>
+
+          <ul className="mt-6 space-y-2">
+            {[
+              "Build useful and user-friendly products",
+              "Create simple solutions that solve real problems",
+              "Improve through testing and feedback",
+            ].map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 text-sm text-white/40"
+              >
+                <span className="mt-[2px] text-white/20">—</span>
+                {item}
+              </li>
+            ))}
           </ul>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <button
               onClick={scrollToContact}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[#111827] px-6 py-3 text-white shadow-lg ring-1 ring-white/10 transition hover:translate-y-[-1px] hover:bg-[#0f172a]"
+              className="inline-flex items-center justify-center gap-2 bg-white text-black px-6 py-3 text-xs tracking-[0.14em] uppercase font-medium hover:bg-white/90 transition"
             >
-              Let's Talk <ArrowDown className="h-4 w-4" />
+              Let's Talk <ArrowDown className="h-3.5 w-3.5" />
             </button>
 
             <a
               href={resumeFile}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[#2563eb] px-6 py-3 text-[#2563eb] transition hover:bg-[#2563eb] hover:text-white"
+              className="inline-flex items-center justify-center gap-2 border border-white/20 text-white/70 px-6 py-3 text-xs tracking-[0.14em] uppercase hover:border-white hover:text-white transition"
             >
-              Download CV <FileDown className="h-4 w-4" />
+              Download CV <FileDown className="h-3.5 w-3.5" />
             </a>
           </div>
 
-          {/* socials */}
-          <div className="mt-6 flex items-center gap-5">
-            <a href="https://github.com/probablynotvin" aria-label="GitHub" className="opacity-80 transition hover:opacity-100">
-              <Github size={22} />
-            </a>
-            <a href="https://www.linkedin.com/in/arvin-charls-basco-549b65283/" aria-label="LinkedIn" className="opacity-80 transition hover:opacity-100">
-              <Linkedin size={22} />
-            </a>
-            <a href="mailto:contactarvincharls@gmail.com" aria-label="Email" className="opacity-80 transition hover:opacity-100">
-              <Mail size={22} />
-            </a>
+          {/* Socials */}
+          <div className="mt-6 flex items-center gap-3">
+            {[
+              {
+                href: "https://github.com/probablynotvin",
+                icon: <Github size={16} />,
+                label: "GitHub",
+              },
+              {
+                href: "https://www.linkedin.com/in/arvin-charls-basco-549b65283/",
+                icon: <Linkedin size={16} />,
+                label: "LinkedIn",
+              },
+              {
+                href: "mailto:contactarvincharls@gmail.com",
+                icon: <Mail size={16} />,
+                label: "Email",
+              },
+            ].map(({ href, icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className="w-9 h-9 border border-white/10 flex items-center justify-center text-white/40 hover:border-white/40 hover:text-white transition"
+              >
+                {icon}
+              </a>
+            ))}
           </div>
         </div>
 
-        {/* RIGHT: Profile picture */}
+        {/* RIGHT */}
         <div className="relative flex-shrink-0">
-          {/* Animated conic gradient ring */}
+          
+
           <div
-            className="absolute -inset-1 rounded-full opacity-80 blur-sm"
-            style={{
-              background:
-                "conic-gradient(at 50% 50%, #1e3a8a 0deg,#2563eb 120deg,#1e40af 240deg, #1e3a8a 360de)",
-              animation: "spin 6s linear infinite",
-            }}
-          />
-
-          {/* Static outer glow */}
-          <div className="absolute -inset-4 rounded-full bg-[#2563eb] opacity-10 blur-2xl" />
-
-          {/* Image container */}
-          <div className="relative h-56 w-56 rounded-full ring-2 ring-white/10 overflow-hidden sm:h-64 sm:w-64 md:h-72 md:w-72 lg:h-80 lg:w-80">
+            className="relative border border-white/10 overflow-hidden bg-white/10"
+            style={{ width: 260, height: 320 }}
+          >
             <img
               src={profileImg}
-              alt="Charls Basco"
-              className="h-full w-full object-cover object-center" // default center
-              style={{ objectPosition: 'center 30%' }} // move image downwards
+              alt="Arvin Charls Basco"
+              className="w-full h-full object-cover"
+              style={{
+                objectPosition: "center 20%",
+                filter: "none",
+              }}
               loading="eager"
               draggable={false}
             />
-          </div>
 
-          {/* Floating badge */}
-          {/* <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-[#2563eb] px-4 py-1 text-xs font-semibold text-white shadow-lg">
-            Available for work 🟢
-          </div> */}
+            <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-black/80 px-3 py-2 backdrop-blur-sm">
+              <p className="text-[0.6rem] tracking-[0.14em] uppercase text-white/30">
+                IT
+              </p>
+              <p className="text-sm font-medium text-white">
+                Arvin Charls Basco
+              </p>
+            </div>
+          </div>
+          
         </div>
       </div>
 
-      {/* spin keyframes injected inline */}
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to   { transform: rotate(360deg); }
-        }
-      `}</style>
-
-      {/* bottom marquee nav */}
-      <div className="absolute bottom-0 left-0 right-0 hidden bg-black/30 py-3 backdrop-blur md:block">
-        <div className="mx-auto flex max-w-6xl items-center justify-between text-sm text-white/80">
+      {/* Bottom ticker */}
+      <div className="absolute bottom-0 left-0 right-0 border-t border-white/5 py-3 hidden md:block">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 text-[0.65rem] tracking-[0.14em] uppercase text-white/20">
           <span>UI/UX</span>
-          <span>WEB DEVELOPMENT</span>
-          <span>BASIC NETWORKING</span>
-          <span>VIRTUALIZATION</span>
-          <span>QUALITY ASSURANCE</span>
+          <span>Web Development</span>
+          <span>Basic Networking</span>
+          <span>Virtualization</span>
+          <span>Quality Assurance</span>
         </div>
       </div>
     </section>

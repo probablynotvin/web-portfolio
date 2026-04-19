@@ -1,91 +1,74 @@
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaReact,
-  FaGithub,
-  FaBootstrap,
-  FaPhp,
-} from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaGithub, FaBootstrap, FaPhp } from 'react-icons/fa';
 import { SiTailwindcss, SiAngular, SiMysql, SiFigma } from 'react-icons/si';
 
-
 export default function About() {
+  const skills = [
+    { name: 'HTML', icon: <FaHtml5 /> },
+    { name: 'CSS', icon: <FaCss3Alt /> },
+    { name: 'AngularJS', icon: <SiAngular /> },
+    { name: 'Bootstrap', icon: <FaBootstrap /> },
+    { name: 'PHP', icon: <FaPhp /> },
+    { name: 'MySQL', icon: <SiMysql /> },
+    { name: 'Figma', icon: <SiFigma /> },
+    { name: 'React', icon: <FaReact /> },
+    { name: 'Tailwind', icon: <SiTailwindcss /> },
+    { name: 'GitHub', icon: <FaGithub /> },
+  ];
+
+  const hobbies = ['Reading', 'Designing', 'Gaming', 'Photography', 'Learning new tech', 'Watching anime', 'Marvel movies', 'Exploring history'];
+
   return (
+    <section className="py-24 px-6 md:px-16 bg-black text-white border-b border-white/5" id="about">
+      {/* Section label */}
+      <div className="flex items-center gap-3 mb-3">
+        <span className="text-[0.65rem] tracking-[0.2em] uppercase text-white/20">02 — Profile</span>
+        <div className="flex-1 h-px bg-white/5" />
+      </div>
 
-    <section className="py-24 px-6 md:px-16 text-center bg-black text-white" id="about">
-      <div className="max-full">
-        <h2 className="text-4xl md:text-5xl mb-10 font-bold text-[var(--primary)]">About Me</h2>
-        <p className="text-white/80 text-lg mb-12 mx-auto text-justify">
-        I’m a BSIT graduate driven by a deep passion for technology and creativity. 
-        I love building visually captivating and responsive web interfaces using modern tools and frameworks.
-        Beyond coding, I’m a curious thinker with a strong appreciation for design, storytelling, 
-        and crafting meaningful digital experiences. 
+      <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-10">About Me</h2>
 
-        In my free time, I enjoy reading books about human nature, power, psychology, finance, and history, 
-        constantly exploring how the world works and how people think. I’m also an avid fan of Marvel, anime, 
-        and the Harry Potter series, drawing inspiration from the rich worlds and characters they create.
+      <p className="text-white/40 text-sm leading-relaxed mb-14 max-w-3xl">
+        I am Arvin Charls D. Basco, born on July 5, 2003, and a BSIT graduate from Cavite State University – Tanza Campus (2025).
 
-        When I’m not coding or designing, you’ll often find me reading, gaming, or immersing myself in a great story. 
-        One of my favorite Bible verses is <strong>John 3:16</strong>, a reminder of love and purpose. I also live by 
-        Confucius’ words: <em>“A journey of a thousand miles begins with a single step.”</em> These guide my mindset in 
-        both life and technology — start small, stay consistent, and keep growing.
-        </p>
+        I originally wanted a science-related career, but I chose IT due to financial reasons. I’ve since grown to enjoy it, especially networking and system administration.
 
+        I have experience as a web developer and am currently focusing on improving my skills in networking.
 
-        <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-30 items-start">
-          
-        {/* Tech Skills - Left Column */}
+        In my free time, I play Dota, watch movies and anime, and read about self-development and related topics. My goal is to build a stable career in the tech industry.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+
+        {/* Tech Skills */}
         <div>
-          <h3 className="text-2xl font-semibold mb-6 text-white">Tech Skills</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 justify-items-center">
-            {[
-              { name: 'HTML', icon: <FaHtml5 className="text-orange-500" /> },
-              { name: 'CSS', icon: <FaCss3Alt className="text-blue-500" /> },
-              { name: 'AngularJS', icon: <SiAngular className="text-red-500" /> },
-              { name: 'Bootstrap', icon: <FaBootstrap className="text-purple-500" /> },
-              { name: 'PHP', icon: <FaPhp className="text-indigo-400" /> },
-              { name: 'MySQL', icon: <SiMysql className="text-blue-400" /> },
-              { name: 'Figma', icon: <SiFigma className="text-pink-500" /> },
-              { name: 'React', icon: <FaReact className="text-cyan-400" /> },
-              { name: 'Tailwind', icon: <SiTailwindcss className="text-sky-400" /> },
-              { name: 'GitHub', icon: <FaGithub className="text-white" /> },
-            ].map((skill, index) => (
+          <p className="text-[0.65rem] tracking-[0.16em] uppercase text-white/20 mb-5">Tech Skills</p>
+          <div className="grid grid-cols-4 sm:grid-cols-5 gap-px bg-white/5">
+            {skills.map((skill) => (
               <div
-                key={index}
-                className="flex flex-col items-center bg-white/10 backdrop-blur-md p-4 rounded-xl w-28 h-28 shadow hover:scale-105 transition-transform"
+                key={skill.name}
+                className="flex flex-col items-center justify-center gap-2 bg-black p-4 text-white/30 hover:text-white hover:bg-white/5 transition group"
               >
-                <div className="text-3xl mb-5">{skill.icon}</div>
-                <span className="text-sm font-medium">{skill.name}</span>
+                <div className="text-2xl">{skill.icon}</div>
+                <span className="text-[0.65rem] tracking-[0.08em] uppercase">{skill.name}</span>
               </div>
             ))}
           </div>
         </div>
 
-
-        {/* Hobbies - Right Column */}
+        {/* Hobbies */}
         <div id="hobbies">
-          <h3 className="text-2xl font-semibold mb-6 text-white">Hobbies</h3>
-          <div className="flex flex-wrap gap-4 justify-center md:justify-start text-white/80">
-            {[
-              'Reading',
-              'Designing',
-              'Gaming',
-              'Photography',
-              'Learning new tech',
-              'Watching anime',
-              'Marvel movies',
-              'Exploring history',
-            ].map((hobby, index) => (
+          <p className="text-[0.65rem] tracking-[0.16em] uppercase text-white/20 mb-5">Hobbies</p>
+          <div className="flex flex-wrap gap-2">
+            {hobbies.map((hobby) => (
               <span
-                key={index}
-                className="px-4 py-2 rounded-full border border-white/20 bg-white/5 text-sm backdrop-blur-md hover:bg-white/10 transition"
+                key={hobby}
+                className="px-4 py-2 border border-white/10 text-xs tracking-[0.06em] text-white/30 hover:border-white hover:text-white hover:bg-white hover:text-black transition cursor-default"
               >
                 {hobby}
               </span>
             ))}
           </div>
         </div>
-      </div>
 
       </div>
     </section>
